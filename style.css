@@ -1,0 +1,253 @@
+:root {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --border: #e0e0e0;
+  --border-complete: #4caf50;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent: #4caf50;
+  --accent-hover: #43a047;
+  --danger: #e53935;
+  --danger-hover: #c62828;
+  --toggle-bg: #e0e0e0;
+  --toggle-complete: #4caf50;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --surface: #1e1e1e;
+    --border: #333333;
+    --border-complete: #66bb6a;
+    --text-primary: #f0f0f0;
+    --text-secondary: #999999;
+    --accent: #66bb6a;
+    --accent-hover: #57a05a;
+    --danger: #ef5350;
+    --danger-hover: #c62828;
+    --toggle-bg: #333333;
+    --toggle-complete: #66bb6a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 24px 16px 48px;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.today {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Add habit form */
+#add-habit-form {
+  display: flex;
+  gap: 8px;
+}
+
+#habit-name-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--surface);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#habit-name-input:focus {
+  border-color: var(--accent);
+}
+
+#add-habit-form button {
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+#add-habit-form button:hover {
+  background: var(--accent-hover);
+}
+
+/* Storage warning */
+.storage-warning {
+  background: #fff3cd;
+  color: #7a5c00;
+  border: 1px solid #ffe082;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 0.875rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Habit list */
+#habit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px 0;
+  font-size: 0.95rem;
+}
+
+/* Habit card */
+.habit-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  padding: 12px 12px 12px 14px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s;
+}
+
+.habit-card.complete {
+  border-left-color: var(--border-complete);
+}
+
+.habit-card:not(.complete) {
+  border-left-color: var(--border);
+}
+
+/* Toggle button */
+.toggle-btn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--toggle-bg);
+  background: var(--toggle-bg);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+  line-height: 1;
+}
+
+.toggle-btn.complete {
+  background: var(--toggle-complete);
+  border-color: var(--toggle-complete);
+}
+
+.toggle-btn:hover {
+  border-color: var(--accent);
+}
+
+/* Habit name */
+.habit-name {
+  flex: 1;
+  font-size: 0.975rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Streak */
+.streak {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.streak.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Delete button */
+.delete-btn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.delete-btn:hover {
+  background: #ffebee;
+  color: var(--danger);
+}
+
+@media (prefers-color-scheme: dark) {
+  .delete-btn:hover {
+    background: #3e1f1f;
+    color: var(--danger);
+  }
+
+  .storage-warning {
+    background: #3e3000;
+    color: #ffe082;
+    border-color: #7a5c00;
+  }
+}
