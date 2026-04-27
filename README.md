@@ -41,4 +41,8 @@
 
 \**을 그대로 사용할 수 있습니다
 
-[Google](https://www.google.com/?hl=ko)
+링크
+[Google.com](https://www.google.com/?hl=ko)
+
+이미지
+![구글로고](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReH1nivRV_9yG4wz04xIz1EEh-J69U_2JRaA&s)
