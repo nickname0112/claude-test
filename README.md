@@ -56,3 +56,7 @@ function test() {
   console.log("hello")
 }
 ```
+
+### 체크리스트
+- [x] 체크리스트1
+- [ ] 체크리스트2
